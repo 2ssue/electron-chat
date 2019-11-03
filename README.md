@@ -1,6 +1,8 @@
 # Electron-Chat
 
-![image](http://image.yes24.com/momo/TopCate1389/MidCate008/138872871.jpg)
+This project converted this book's examples (electron-chat) to current version react and electron.
+
+<img src='http://image.yes24.com/momo/TopCate1389/MidCate008/138872871.jpg' width='300px'/>
 
 ## 🏠 [PUBLISH PAGE](http://106.10.46.87:3000)
 
