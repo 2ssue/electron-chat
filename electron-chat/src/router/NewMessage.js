@@ -28,7 +28,7 @@ function NewMessage({ onMessagePost }) {
 
 const FormContainer = styled.form`
   input {
-    min-width: 30rem;
+    min-width: 20rem;
   }
   button {
     margin-left: 0.5rem;

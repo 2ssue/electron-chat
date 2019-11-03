@@ -90,7 +90,7 @@ function Room({ roomId }) {
 
 const RoomContainer = styled.div`
   padding: 10px 30px;
-  min-width: 30rem;
+  min-width: 20rem;
 `;
 
 export default Room;
