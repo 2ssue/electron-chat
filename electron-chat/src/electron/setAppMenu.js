@@ -7,7 +7,7 @@ function setAppMenu() {
       label: "File",
       submenu: [
         {
-          label: "New Winbdow",
+          label: "New Window",
           accelerator: "CmdOrCtrl+N",
           click: createWindow
         },
