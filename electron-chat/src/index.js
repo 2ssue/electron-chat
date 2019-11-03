@@ -7,7 +7,8 @@ import Login from "./router/Login";
 import Signup from "./router/Signup";
 import Rooms from "./router/Rooms";
 import firebase from "firebase";
-require("dotenv").config();
+import dotenv from "dotenv";
+dotenv.config();
 
 const appRouting = (
   <Router>
@@ -33,14 +34,14 @@ if (window.location.href.slice(7, -1) === window.location.host) {
 }
 
 const firebaseConfig = {
-  apiKey: process.env.API_KEY,
-  authDomain: `${process.env.PROJECT_ID}.firebaseapp.com`,
-  databaseURL: `https://${process.env.PROJECT_ID}.firebaseio.com`,
-  projectId: process.env.PROJECT_ID,
-  storageBucket: `${process.env.PROJECT_ID}.appspot.com`,
-  messagingSenderId: process.env.MESSAGE_SENDER_ID,
-  appId: process.env.APP_ID,
-  measurementId: process.env.MEASUREMENT_ID
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: `${process.env.REACT_APP_PROJECT_ID}.firebaseapp.com`,
+  databaseURL: `https://${process.env.REACT_APP_PROJECT_ID}.firebaseio.com`,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: `${process.env.REACT_APP_PROJECT_ID}.appspot.com`,
+  messagingSenderId: process.env.REACT_APP_MESSAGE_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
+  measurementId: process.env.REACT_APP_MEASUREMENT_ID
 };
 
 firebase.initializeApp(firebaseConfig);
