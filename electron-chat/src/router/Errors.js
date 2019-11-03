@@ -16,9 +16,10 @@ function Errors({ errorMessages }) {
 }
 
 const ErrorContainer = styled.div`
-  padding: 10;
-  margin-bottom: 30;
-  border-radius: 5;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  color: red;
   background-color: #ffdddf;
 `;
 

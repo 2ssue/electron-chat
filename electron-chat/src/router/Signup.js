@@ -34,25 +34,26 @@ function Signup() {
 
   const handleOnSubmit = e => {
     let isValid = true;
+    const errorList = [];
     e.preventDefault();
 
     if (!email.length) {
       isValid = false;
-      errors.push("Email address can't be blank");
+      errorList.push("Email address can't be blank");
     }
 
     if (!password.length) {
       isValid = false;
-      errors.push("Password can't be blank");
+      errorList.push("Password can't be blank");
     }
 
     if (!name.length) {
       isValid = false;
-      errors.push("Name can't be blank");
+      errorList.push("Name can't be blank");
     }
 
     if (!isValid) {
-      setErrors({ errors });
+      setErrors(errorList);
       return;
     }
 
@@ -60,14 +61,16 @@ function Signup() {
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then(newUser => {
-        window.location = "/rooms";
-        return newUser.updateProfile({
+        return newUser.user.updateProfile({
           displayName: name,
-          avatar
+          photoURL: avatar
         });
       })
+      .then(() => {
+        window.location = "/rooms";
+      })
       .catch(err => {
-        setErrors({ errors: err.message });
+        setErrors([err.message]);
       });
   };
 
