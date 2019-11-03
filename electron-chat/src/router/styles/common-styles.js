@@ -22,4 +22,7 @@ export const Button = styled.button`
   padding: 0.5rem;
   border-radius: 5px;
   margin-right: 0.5rem;
+  background-color: cornflowerblue;
+  border: none;
+  color: white;
 `;
