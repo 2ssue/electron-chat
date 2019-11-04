@@ -1,5 +1,5 @@
 const { app, Menu } = require("electron");
-const { createWindow } = require("./electron-starter");
+const createWindow = require("./createWindow");
 
 function setAppMenu() {
   const template = [
