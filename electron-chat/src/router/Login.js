@@ -47,7 +47,7 @@ function Login() {
       .then(() => {
         localStorage.userEmail = email;
         localStorage.userPassword = password;
-        window.location = "/rooms";
+        window.location.hash = "#/rooms";
       })
       .catch(() => {
         setErrors({ errors: ["Incorect email or password"] });

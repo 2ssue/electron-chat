@@ -1,18 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Switch, Route, useRouteMatch } from "react-router-dom";
 import Room from "./Room";
 import RoomItem from "./RoomItem";
 import firebase from "firebase/app";
 import styled from "styled-components";
 import { Button, Input } from "./styles/common-styles";
 
-function Rooms({ children }) {
-  const roomId = window.location.pathname.split("/")[2];
+function Rooms() {
+  const roomId = window.location.hash.split("/")[2];
   const [roomName, setRoomName] = useState("");
   const [rooms, setRooms] = useState([]);
   const database = firebase.database();
-
-  let match = useRouteMatch();
 
   useEffect(() => {
     fetchRooms();

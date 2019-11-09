@@ -1,8 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./router/Login";
 import Signup from "./router/Signup";
 import Rooms from "./router/Rooms";
@@ -22,15 +21,12 @@ const appRouting = (
       <Route path="/rooms">
         <Rooms />
       </Route>
-      <Route path="/">
-        <App />
-      </Route>
     </Switch>
   </Router>
 );
 
-if (window.location.href.slice(7, -1) === window.location.host) {
-  window.location = "/login";
+if (!window.location.hash || window.location.hash === "#/") {
+  window.location.hash = "#/login";
 }
 
 const firebaseConfig = {

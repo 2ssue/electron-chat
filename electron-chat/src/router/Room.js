@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
-import { useParams } from "react-router-dom";
 import firebase from "firebase/app";
 import styled from "styled-components";
 import NewMessage from "./NewMessage";
@@ -10,7 +9,6 @@ let stream = null;
 let user = null;
 
 function Room({ roomId }) {
-  // const { roomId } = useParams();
   const database = firebase.database();
   const [description, setDescription] = useState("");
   const [messages, setMessages] = useState([]);
@@ -63,17 +61,19 @@ function Room({ roomId }) {
   };
 
   const fetchRoom = roomId => {
-    fbChatRoomRef = database.ref("/chatrooms/" + roomId);
-    fbChatRoomRef.once("value").then(snapshot => {
-      const { description } = snapshot.val();
-      setDescription(description);
-      window.document.title = description;
-    });
+    if (roomId) {
+      fbChatRoomRef = database.ref("/chatrooms/" + roomId);
+      fbChatRoomRef.once("value").then(snapshot => {
+        const { description } = snapshot.val();
+        setDescription(description);
+        window.document.title = description;
+      });
 
-    stream = fbChatRoomRef.child("messages").limitToLast(10);
-    stream.on("child_added", item => {
-      setNewMessage(Object.assign({ key: item.key }, item.val()));
-    });
+      stream = fbChatRoomRef.child("messages").limitToLast(10);
+      stream.on("child_added", item => {
+        setNewMessage(Object.assign({ key: item.key }, item.val()));
+      });
+    }
   };
 
   return (
