@@ -6,13 +6,25 @@ import styled from 'styled-components';
 import { Button, Input } from './styles/common-styles';
 
 function Rooms() {
-  const roomId = window.location.hash.split('/')[2];
+  const [roomId, setRoomId] = useState(null);
   const [roomName, setRoomName] = useState('');
   const [rooms, setRooms] = useState([]);
   const database = firebase.database();
 
   useEffect(() => {
     fetchRooms();
+
+    function handleHashChange() {
+      const newRoomId = this.location.hash.split('/')[2];
+      if (newRoomId === undefined) return;
+
+      setRoomId(newRoomId);
+    }
+    window.addEventListener('hashchange', handleHashChange);
+
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+    };
   }, []);
 
   const handleOnChangeRoomName = (e) => {
