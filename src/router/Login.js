@@ -1,29 +1,29 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import firebase from "firebase/app";
-import Errors from "./Errors";
-import styled from "styled-components";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import firebase from 'firebase/app';
+import Errors from './Errors';
+import styled from 'styled-components';
 import {
   FormContainer,
   InputContainer,
   Input,
-  Button
-} from "./styles/common-styles";
+  Button,
+} from './styles/common-styles';
 
 function Login() {
-  const [email, setEmail] = useState(localStorage.usesEmail || "");
-  const [password, setPassword] = useState(localStorage.userPassword || "");
+  const [email, setEmail] = useState(localStorage.usesEmail || '');
+  const [password, setPassword] = useState(localStorage.userPassword || '');
   const [errors, setErrors] = useState([]);
 
-  const handleOnChangeEmail = e => {
+  const handleOnChangeEmail = (e) => {
     setEmail(e.target.value);
   };
 
-  const handleOnChangePassword = e => {
+  const handleOnChangePassword = (e) => {
     setPassword(e.target.value);
   };
 
-  const handleOnSubmit = e => {
+  const handleOnSubmit = (e) => {
     let isValid = true;
 
     e.preventDefault();
@@ -47,10 +47,10 @@ function Login() {
       .then(() => {
         localStorage.userEmail = email;
         localStorage.userPassword = password;
-        window.location.hash = "#/rooms";
+        window.location.hash = '#/rooms';
       })
       .catch(() => {
-        setErrors({ errors: ["Incorect email or password"] });
+        setErrors({ errors: ['Incorect email or password'] });
       });
   };
 

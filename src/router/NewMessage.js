@@ -1,20 +1,20 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import { Button, Input } from "./styles/common-styles";
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { Button, Input } from './styles/common-styles';
 
 function NewMessage({ onMessagePost }) {
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState('');
 
-  const handleOnChange = e => {
+  const handleOnChange = (e) => {
     setMessage(e.target.value);
   };
 
-  const handleOnSubmit = e => {
+  const handleOnSubmit = (e) => {
     if (!onMessagePost || !message.length) {
       return;
     }
     onMessagePost(message);
-    setMessage("");
+    setMessage('');
     e.preventDefault();
   };
 

@@ -7,7 +7,6 @@ This project converted this book's examples (electron-chat) to current version r
 ## Install
 
 ```bash
-$ cd electron-chat
 $ npm install
 ```
 

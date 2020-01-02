@@ -1,12 +1,12 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import { HashRouter as Router, Switch, Route } from "react-router-dom";
-import Login from "./router/Login";
-import Signup from "./router/Signup";
-import Rooms from "./router/Rooms";
-import firebase from "firebase";
-import dotenv from "dotenv";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
+import Login from './router/Login';
+import Signup from './router/Signup';
+import Rooms from './router/Rooms';
+import firebase from 'firebase';
+import dotenv from 'dotenv';
 dotenv.config();
 
 const appRouting = (
@@ -25,8 +25,8 @@ const appRouting = (
   </Router>
 );
 
-if (!window.location.hash || window.location.hash === "#/") {
-  window.location.hash = "#/login";
+if (!window.location.hash || window.location.hash === '#/') {
+  window.location.hash = '#/login';
 }
 
 const firebaseConfig = {
@@ -37,9 +37,9 @@ const firebaseConfig = {
   storageBucket: `${process.env.REACT_APP_PROJECT_ID}.appspot.com`,
   messagingSenderId: process.env.REACT_APP_MESSAGE_SENDER_ID,
   appId: process.env.REACT_APP_APP_ID,
-  measurementId: process.env.REACT_APP_MEASUREMENT_ID
+  measurementId: process.env.REACT_APP_MEASUREMENT_ID,
 };
 
 firebase.initializeApp(firebaseConfig);
 
-ReactDOM.render(appRouting, document.getElementById("root"));
+ReactDOM.render(appRouting, document.getElementById('root'));

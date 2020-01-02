@@ -1,38 +1,38 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import Errors from "./Errors";
-import firebase from "firebase/app";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import Errors from './Errors';
+import firebase from 'firebase/app';
 import {
   FormContainer,
   InputContainer,
   Input,
-  Button
-} from "./styles/common-styles";
+  Button,
+} from './styles/common-styles';
 
 function Signup() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
-  const [avatar, setAvatar] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+  const [avatar, setAvatar] = useState('');
   const [errors, setErrors] = useState([]);
 
-  const handleOnChangeEmail = e => {
+  const handleOnChangeEmail = (e) => {
     setEmail(e.target.value);
   };
 
-  const handleOnChangePassword = e => {
+  const handleOnChangePassword = (e) => {
     setPassword(e.target.value);
   };
 
-  const handleOnChangeName = e => {
+  const handleOnChangeName = (e) => {
     setName(e.target.value);
   };
 
-  const handleOnChangeAvatar = e => {
+  const handleOnChangeAvatar = (e) => {
     setAvatar(e.target.value);
   };
 
-  const handleOnSubmit = e => {
+  const handleOnSubmit = (e) => {
     let isValid = true;
     const errorList = [];
     e.preventDefault();
@@ -60,16 +60,16 @@ function Signup() {
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
-      .then(newUser => {
+      .then((newUser) => {
         return newUser.user.updateProfile({
           displayName: name,
-          photoURL: avatar
+          photoURL: avatar,
         });
       })
       .then(() => {
-        window.location = "/rooms";
+        window.location = '/rooms';
       })
-      .catch(err => {
+      .catch((err) => {
         setErrors([err.message]);
       });
   };

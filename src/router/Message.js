@@ -1,6 +1,6 @@
-import React from "react";
-import Avatar from "./Avatar";
-import styled from "styled-components";
+import React from 'react';
+import Avatar from './Avatar';
+import styled from 'styled-components';
 
 function Message({ message }) {
   const { text, time, writtenBy } = message;

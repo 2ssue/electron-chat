@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
-import Room from "./Room";
-import RoomItem from "./RoomItem";
-import firebase from "firebase/app";
-import styled from "styled-components";
-import { Button, Input } from "./styles/common-styles";
+import React, { useState, useEffect } from 'react';
+import Room from './Room';
+import RoomItem from './RoomItem';
+import firebase from 'firebase/app';
+import styled from 'styled-components';
+import { Button, Input } from './styles/common-styles';
 
 function Rooms() {
-  const roomId = window.location.hash.split("/")[2];
-  const [roomName, setRoomName] = useState("");
+  const roomId = window.location.hash.split('/')[2];
+  const [roomName, setRoomName] = useState('');
   const [rooms, setRooms] = useState([]);
   const database = firebase.database();
 
@@ -15,26 +15,26 @@ function Rooms() {
     fetchRooms();
   }, []);
 
-  const handleOnChangeRoomName = e => {
+  const handleOnChangeRoomName = (e) => {
     setRoomName(e.target.value);
   };
 
-  const handleOnSubmit = e => {
+  const handleOnSubmit = (e) => {
     e.preventDefault();
 
     if (!roomName.length) {
       return;
     }
     //Firebase 데이터베이스에 새로운 채팅방 생성
-    const newRoomRef = database.ref("/chatrooms").push();
+    const newRoomRef = database.ref('/chatrooms').push();
     const newRoom = {
-      description: roomName
+      description: roomName,
     };
 
     //생성한 채팅방 description 변경
     newRoomRef.update(newRoom).then(async () => {
       //상태 초기화
-      setRoomName("");
+      setRoomName('');
       //채팅방 다시 가져오기
       return fetchRooms().then(() => {
         window.location = `/rooms/${newRoomRef.key}`;
@@ -45,12 +45,12 @@ function Rooms() {
   const fetchRooms = () => {
     //Firebase 데이터베이스에서 채팅방 20개 가져옴
     return database
-      .ref("/chatrooms")
+      .ref('/chatrooms')
       .limitToLast(20)
-      .once("value")
-      .then(snapshot => {
+      .once('value')
+      .then((snapshot) => {
         const rooms = [];
-        snapshot.forEach(item => {
+        snapshot.forEach((item) => {
           //데이터베이스에서 추출한 데이터 객채화
           rooms.push(Object.assign({ key: item.key }, item.val()));
         });
@@ -61,7 +61,7 @@ function Rooms() {
   const renderRoomList = () => {
     return (
       <div>
-        {rooms.map(r => (
+        {rooms.map((r) => (
           <RoomItem room={r} key={r.key} selected={r.key === roomId} />
         ))}
         <div>

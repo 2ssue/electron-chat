@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 function RoomItem({ selected, room }) {
   const { description, key } = room;
@@ -16,13 +16,13 @@ function RoomItem({ selected, room }) {
 }
 
 const RoomItemContainer = styled.div`
-  background-color: ${props =>
-    props.selected === false ? "white" : "cornflowerblue"};
+  background-color: ${(props) =>
+    props.selected === false ? 'white' : 'cornflowerblue'};
   padding: 0.3rem;
   margin-bottom: 0.3rem;
   a {
     text-decoration: none;
-    color: ${props => (props.selected === false ? "black" : "white")};
+    color: ${(props) => (props.selected === false ? 'black' : 'white')};
   }
 `;
 

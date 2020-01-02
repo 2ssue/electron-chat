@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 function Errors({ errorMessages }) {
   if (!errorMessages || !errorMessages.length) {
@@ -8,7 +8,7 @@ function Errors({ errorMessages }) {
 
   return (
     <ErrorContainer>
-      {errorMessages.map(e => (
+      {errorMessages.map((e) => (
         <div key={e}>{e}</div>
       ))}
     </ErrorContainer>
