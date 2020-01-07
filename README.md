@@ -26,7 +26,7 @@ $ npm run electron
 ## Packaging
 
 ```bash
-$ Copy ./src/electron ./build/electron
+$ Copy ./src/electron ./build/electron -Recurse
 # At electron/createWindows.js file, modify file path statement like this.
 # pathname: path.join(__dirname, '../index.html'),
 # 
