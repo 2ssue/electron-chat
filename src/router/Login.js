@@ -11,7 +11,7 @@ import {
 } from './styles/common-styles';
 
 function Login() {
-  const [email, setEmail] = useState(localStorage.usesEmail || '');
+  const [email, setEmail] = useState(localStorage.userEmail || '');
   const [password, setPassword] = useState(localStorage.userPassword || '');
   const [errors, setErrors] = useState([]);
 
