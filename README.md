@@ -23,6 +23,33 @@ $ npm run build
 $ npm run electron
 ```
 
+## Packaging
+
+```bash
+$ Copy ./src/electron ./build/electron
+# At electron/createWindows.js file, modify file path statement like this.
+# pathname: path.join(__dirname, '../index.html'),
+# 
+# And create package.json file like below, and start packaging.
+$ npm run packager
+```
+### build/package.json
+
+```json
+{
+  "name": "electron-chat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "electron/electron-starter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "packager": "npx electron-packager . electron-chat --platform win32 --arch x64 --out release/"
+  },
+  "author": "",
+  "license": "ISC"
+}
+```
+
 ## Project Structure
 
 This project's structure is based on [express generator](https://expressjs.com/ko/starter/generator.html)
