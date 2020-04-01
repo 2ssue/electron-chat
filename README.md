@@ -32,6 +32,7 @@ $ cd build
 # pathname: path.join(__dirname, '../index.html'),
 # 
 # And create package.json file like below, and start packaging.
+# If you don't want to show raw code, use `--asar` option when packaging.
 $ npm run packager
 ```
 ### build/package.json
