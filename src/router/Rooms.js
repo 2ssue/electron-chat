@@ -49,7 +49,7 @@ function Rooms() {
       setRoomName('');
       //채팅방 다시 가져오기
       return fetchRooms().then(() => {
-        window.location = `/rooms/${newRoomRef.key}`;
+        window.location = `#/rooms/${newRoomRef.key}`;
       });
     });
   };
