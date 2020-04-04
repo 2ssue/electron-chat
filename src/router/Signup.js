@@ -67,7 +67,7 @@ function Signup() {
         });
       })
       .then(() => {
-        window.location = '/rooms';
+        window.location = '#/rooms';
       })
       .catch((err) => {
         setErrors([err.message]);
