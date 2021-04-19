@@ -1,5 +1,5 @@
 const { app, Menu } = require('electron');
-const createWindow = require('./createWindow');
+const createWindow = require('./main');
 
 function setAppMenu() {
   const template = [
@@ -60,7 +60,7 @@ function setAppMenu() {
     },
   ];
 
-  //macOS인 경우를 뜻함
+  // macOS
   if (process.platform === 'darwin') {
     template.unshift({
       label: app.getName(),
