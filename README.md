@@ -7,7 +7,7 @@ This project converted this book's examples (electron-chat) to current version r
 ## Install
 
 ```bash
-$ npm install
+$yarn 
 ```
 
 ## Usage
@@ -17,24 +17,26 @@ $ npm install
 #
 # You have to make .env file before start.
 # This project don't inform server information. checkout `dev.env`
-$ cd electron-chat
+$cd electron-chat
 # react build
-$ npm run build
-$ npm run electron
+$yarn run build
+# run electron
+$yarn run electron
 ```
 
 ## Packaging
 
 ```bash
-$ Copy ./src/electron ./build/electron -Recurse
-$ cd build
+$Copy ./src/electron ./build/electron -Recurse
+$cd build
 # At electron/createWindows.js file, modify file path statement like this.
 # pathname: path.join(__dirname, '../index.html'),
 # 
 # And create package.json file like below, and start packaging.
 # If you don't want to show raw code, use `--asar` option when packaging.
-$ npm run packager
+$yarn run packager
 ```
+
 ### build/package.json
 
 ```json
